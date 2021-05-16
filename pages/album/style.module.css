@@ -1,0 +1,26 @@
+.backBtnWrapper {
+  padding: 15px;
+}
+
+.image {
+  width: 100%;
+}
+
+.title {
+  padding-left: 15px;
+}
+
+@media (min-width: 480px) {
+  .photosWrapper {
+    display: flex;
+    flex-direction: row;
+    width: 80vw;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    align-items: flex-start;
+  }
+
+  .image {
+    width: 40vw;
+  }
+}
