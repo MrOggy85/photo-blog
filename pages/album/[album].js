@@ -34,7 +34,8 @@ const Album = ({ photos }) => {
 
 Album.getInitialProps = async (ctx) => {
   const { album } = ctx.query;
-  const res = await fetch(`https://photos.oskarlindgren.se/album/${album}`)
+  const encodedAlbum = encodeURIComponent(album)
+  const res = await fetch(`https://photos.oskarlindgren.se/album/${encodedAlbum}`)
   const json = await res.json()
   return { photos: json }
 }
