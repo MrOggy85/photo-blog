@@ -35,12 +35,28 @@ const Album = ({ photos }) => {
   );
 };
 
-Album.getInitialProps = async (ctx) => {
-  const { album } = ctx.query;
+const getStaticPaths = async () => {
+  const res = await fetch('https://photos.oskarlindgren.se/list');
+  const json = await res.json();
+
+  return {
+    paths: json.map(x => ({ params: { album: x } })),
+    fallback: false,
+  };
+};
+
+const getStaticProps = async (ctx) => {
+  const { album } = ctx.params;
+  console.log('album', album);
   const encodedAlbum = encodeURIComponent(album);
   const res = await fetch(`${BASE_URL}/album/${encodedAlbum}`);
   const json = await res.json();
-  return { photos: json };
+  return { props: { photos: json } };
+};
+
+export {
+  getStaticPaths,
+  getStaticProps,
 };
 
 export default Album;

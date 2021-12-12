@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 
@@ -31,10 +30,15 @@ function Home({ albums }) {
   );
 }
 
-Home.getInitialProps = async (ctx) => {
+const getStaticProps = async (ctx) => {
   const res = await fetch('https://photos.oskarlindgren.se/list');
   const json = await res.json();
-  return { albums: json };
+
+  return { props: { albums: json } };
+};
+
+export {
+  getStaticProps,
 };
 
 export default Home;
