@@ -1,7 +1,8 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
+import styles from '../styles/Home.module.css';
+
 function Home({ albums }) {
   return (
     <div className={styles.container}>
@@ -27,13 +28,13 @@ function Home({ albums }) {
 
       </main>
     </div>
-  )
+  );
 }
 
 Home.getInitialProps = async (ctx) => {
-  const res = await fetch('https://photos.oskarlindgren.se/list')
-  const json = await res.json()
-  return { albums: json }
-}
+  const res = await fetch('https://photos.oskarlindgren.se/list');
+  const json = await res.json();
+  return { albums: json };
+};
 
 export default Home;
