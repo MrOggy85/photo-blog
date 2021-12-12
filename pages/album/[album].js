@@ -42,7 +42,7 @@ const getStaticPaths = async () => {
 
   return {
     paths: json.map(x => ({ params: { album: x } })),
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 
