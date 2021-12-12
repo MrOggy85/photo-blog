@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './style.module.css';
 
 const BASE_URL = 'https://photos.oskarlindgren.se';
@@ -28,7 +29,7 @@ const Album = ({ photos }) => {
 
       <div className={styles.photosWrapper}>
         {photos.map((x, i) => (
-          <img key={i} className={styles.image} src={`${BASE_URL}/photo/${album}/${x.url}`} alt={x.alt} width={x.width} height={x.height} />
+          <Image key={i} className={styles.image} src={`${BASE_URL}/photo/${album}/${x.url}`} alt={x.alt} width={x.width} height={x.height} />
         ))}
       </div>
     </>
