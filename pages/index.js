@@ -30,20 +30,10 @@ function Home({ albums }) {
   );
 }
 
-const getStaticProps = async (ctx) => {
+Home.getInitialProps = async (ctx) => {
   const res = await fetch('https://photos.oskarlindgren.se/list');
   const json = await res.json();
-
-  return {
-    props: {
-      albums: json
-    },
-    revalidate: 60,
-  };
-};
-
-export {
-  getStaticProps,
+  return { albums: json };
 };
 
 export default Home;
