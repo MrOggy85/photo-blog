@@ -52,7 +52,12 @@ const getStaticProps = async (ctx) => {
   const encodedAlbum = encodeURIComponent(album);
   const res = await fetch(`${BASE_URL}/album/${encodedAlbum}`);
   const json = await res.json();
-  return { props: { photos: json } };
+  return {
+    props: {
+      photos: json
+    },
+    revalidate: 60,
+  };
 };
 
 export {

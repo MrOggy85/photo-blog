@@ -34,7 +34,12 @@ const getStaticProps = async (ctx) => {
   const res = await fetch('https://photos.oskarlindgren.se/list');
   const json = await res.json();
 
-  return { props: { albums: json } };
+  return {
+    props: {
+      albums: json
+    },
+    revalidate: 60,
+  };
 };
 
 export {
