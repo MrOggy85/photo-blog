@@ -54,9 +54,9 @@ const getStaticProps = async (ctx) => {
   const json = await res.json();
   return {
     props: {
-      photos: json
+      photos: json,
     },
-    revalidate: 60,
+    revalidate: 60 * 60 * 24, // revalidate once a day
   };
 };
 
