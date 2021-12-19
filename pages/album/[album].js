@@ -28,7 +28,7 @@ const Album = ({ photos }) => {
       <h1 className={styles.title}>{album}</h1>
 
       <div className={styles.photosWrapper}>
-        {photos.map((x, i) => (
+        {photos?.map((x, i) => (
           <Image key={i} className={styles.image} src={`${BASE_URL}/photo/${album}/${x.url}`} alt={x.alt} width={x.width} height={x.height} />
         ))}
       </div>
@@ -42,7 +42,7 @@ const getStaticPaths = async () => {
 
   return {
     paths: json.map(x => ({ params: { album: x } })),
-    fallback: 'blocking',
+    fallback: true,
   };
 };
 
