@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    padding: 1em;
+  }
+}
+
+main {
+  margin: 0 auto;
+  max-width: 600px;
+  padding-top: 1em;
+  padding-bottom: 3em;
+}
+
+html,
+body,
+main.markdown-body {
+  background-color: #191d21;
+}
+
+body .markdown-body img {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+body .markdown-body h1,
+body .markdown-body h2,
+body .markdown-body h3,
+body .markdown-body p {
+  text-align: center;
+  color: #dad8d8;
+  letter-spacing: 0;
+  line-height: 1.6;
+}
+
+body .markdown-body code {
+  background-color: #373739;
+}
+
+body .markdown-body a>code {
+  color: #A6CEFC;
+}
+
+
+body .markdown-body p {
+  text-align: left;
+}
+
+body .markdown-body h2,
+body .markdown-body h3 {
+  border-bottom: 0;
+  margin: 0;
+  padding: 0;
+}
+
+body .markdown-body h3 {
+  color: #aaa;
+  font-size: 1.1em;
+  margin-bottom: 1em;
+}
+
+header {
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 1em;
+}
+
+footer {
+  color: #aaa;
+  text-align: center;
+  padding-bottom: 2em;
+}

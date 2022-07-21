@@ -1,19 +1,27 @@
 # Photo Blog
-This is the frontend for an auto-publish Photo Blog system. It's a Next.js app with:
-* `/` - lists all *albums*
-* `/album/{albumName}` - displays the *content of the album*
 
-Read about the system in my [blog](https://www2.oskarlindgren.se/blog/photo-blog-with-nextjs-deno-syncthing). 
-tl;dr the photos are synced by syncthing, served by the backend and displayed with this frontend.
+This is the frontend for an auto-publish Photo Blog system
 
-Check out the [photo-file-server](https://github.com/MrOggy85/photo-file-server) which is the backend.
+- `/` - lists all _albums_
+- `/{albumName}` - displays the _images of the album_
 
-## Develop
-```sh
-yarn dev
+Read about the system in my
+[blog](https://www.okuno.se/blog/photo-blog-with-nextjs-deno-syncthing). tl;dr
+the photos are synced by syncthing, served by the backend and displayed with
+this frontend.
+
+Check out the [photo-file-server](https://github.com/MrOggy85/photo-file-server)
+which is the backend.
+
+## Development
+
+```bash
+# install dependencies
+$ ./run.sh
 ```
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Notes
+For detailed explanation on how things work, check out
+[Deno docs](https://deno.land/).
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+- powered by Deno
+- served by Deno Deploy
