@@ -29,9 +29,26 @@
       }
     };
 
-    document.addEventListener('DOMContentLoaded', (event) => {
+    const c = (e) => {
+      console.log('c', e.target.src);
+
+      document.body.classList.add('lock');
+      document.querySelector('.modal img').src = e.target.src;
+    };
+
+    const b = () => {
+      document.body.classList.remove('lock');
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
       document.querySelector('.view select').oninput = x;
+      for (const elt of document.querySelectorAll('img')) {
+        elt.onclick = c;
+      }
+      document.querySelector('.modal').onclick = b;
     });
+
+    x
   </script>
 </head>
 
@@ -41,6 +58,9 @@
   </main>
 
   <footer>@ 2022 Oskar Okuno</footer>
+  <div class="modal">
+    <img src="https://photo-blog.oskarlindgren.se/Fuji%20Flowers%20in%20Shizuoka/1618747990930..jpg">
+  </div>
 </body>
 
 </html>
