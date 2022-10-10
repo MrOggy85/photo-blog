@@ -44,9 +44,11 @@ async function album(ctx: GetByIdContext) {
   const response = await fetch(`${BASE_URL}/album/${album}`);
   const json = await response.json() as { url: string; alt: string }[];
 
+  const filteredJson = json.filter((x) => x.alt !== ".hidden");
+
   const body = '<h1><a href="./">Oskar Okuno\'s Photo Blog</a></h1>' +
     `<h2 style="font-size: 3em;">${album}</h2>` +
-    json.map((x) => `<img src="${x.url}" alt="${x.alt}" />`).join("");
+    filteredJson.map((x) => `<img src="${x.url}" alt="${x.alt}" />`).join("");
 
   const html = await getHtml(body);
 
