@@ -15,6 +15,11 @@ main {
   padding-bottom: 3em;
 }
 
+main.wide,
+main.fill {
+  max-width: 90%;
+}
+
 html,
 body,
 main.markdown-body {
@@ -28,6 +33,18 @@ body .markdown-body img {
   min-height: 400px;
   margin: 0 auto;
   display: block;
+  margin-bottom: 1em;
+}
+
+main.fill .photos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+body main.fill img {
+  width: 200px;
+  min-width: initial;
+  min-height: initial;
 }
 
 body .markdown-body h1,
@@ -76,4 +93,15 @@ footer {
   color: #aaa;
   text-align: center;
   padding-bottom: 2em;
+}
+
+.view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.view label {
+  margin-right: 0.2em;
 }

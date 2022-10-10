@@ -48,7 +48,10 @@ async function album(ctx: GetByIdContext) {
 
   const body = '<h1><a href="./">Oskar Okuno\'s Photo Blog</a></h1>' +
     `<h2 style="font-size: 3em;">${album}</h2>` +
-    filteredJson.map((x) => `<img src="${x.url}" alt="${x.alt}" />`).join("");
+    "<div class='view'><label for='view'>View</label><select id='view'><option value='narrow'>Narrow</option><option value='wide'>Wide</option><option value='fill'>Fill</option></select></div>" +
+    '<div class="photos">' +
+    filteredJson.map((x) => `<img src="${x.url}" alt="${x.alt}" />`).join("") +
+    "</div>";
 
   const html = await getHtml(body);
 

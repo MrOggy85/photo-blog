@@ -15,6 +15,24 @@
     /* %CSS% */
 
   </style>
+  <script type="text/javascript">
+    const x = (e) => {
+      document.querySelector('main').classList.remove('wide');
+      document.querySelector('main').classList.remove('fill');
+
+      const v = e.target.value;
+      if (v === 'wide') {
+        document.querySelector('main').classList.add('wide');
+      }
+      if (v === 'fill') {
+        document.querySelector('main').classList.add('fill');
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelector('.view select').oninput = x;
+    });
+  </script>
 </head>
 
 <body>
