@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
       closeModal();
     }
     if (document.body.classList.contains('lock')) {
-      console.log('modal is showing!');
       if (e.key === KEY_ARROW_RIGHT) {
         next();
       }
