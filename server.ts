@@ -1,7 +1,24 @@
+import basicAuth from "./basicAuth.ts";
 import { Application, Context, Router } from "./deps.ts";
 import initPostsRoutes from "./route.ts";
 
 const BASE_URL = Deno.env.get("BASE_URL") || "/";
+const REALM = Deno.env.get("REALM") || "";
+const USER = Deno.env.get("USER") || "";
+const PASSWORD = Deno.env.get("PASSWORD") || "";
+
+if (!REALM) {
+  console.log("Please set REALM env");
+  Deno.exit(1);
+}
+if (!USER) {
+  console.log("Please set USER env");
+  Deno.exit(1);
+}
+if (!PASSWORD) {
+  console.log("Please set USER env");
+  Deno.exit(1);
+}
 
 function logger(ctx: Context) {
   console.log(
@@ -12,11 +29,23 @@ function logger(ctx: Context) {
 function initServer() {
   const app = new Application();
 
-  app.use(async (context, next) => {
+  app.use(async (ctx, next) => {
+    const authorized = basicAuth(ctx, {
+      [`${USER}`]: PASSWORD,
+    });
+    if (!authorized) {
+      ctx.response.status = 401;
+      ctx.response.headers.set("www-authenticate", `Basic realm="${REALM}"`);
+      return;
+    }
+    await next();
+  });
+
+  app.use(async (ctx, next) => {
     const root = `${Deno.cwd()}/static`;
-    const path = context.request.url.pathname.replace(BASE_URL, "");
+    const path = ctx.request.url.pathname.replace(BASE_URL, "");
     try {
-      await context.send({
+      await ctx.send({
         path,
         root,
         index: BASE_URL,
