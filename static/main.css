@@ -67,7 +67,16 @@ body .markdown-body p {
   text-align: center;
   color: #dad8d8;
   letter-spacing: 0;
+}
+
+body .markdown-body p {
   line-height: 1.6;
+}
+
+body .markdown-body h1,
+body .markdown-body h2,
+body .markdown-body h3 {
+  line-height: 1;
 }
 
 body .markdown-body code {
@@ -87,13 +96,13 @@ body .markdown-body h2,
 body .markdown-body h3 {
   border-bottom: 0;
   margin: 0;
+  margin-bottom: 0.5em;
   padding: 0;
 }
 
 body .markdown-body h3 {
   color: #aaa;
   font-size: 1.1em;
-  margin-bottom: 1em;
 }
 
 header {
