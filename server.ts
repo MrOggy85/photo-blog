@@ -36,6 +36,7 @@ function initServer() {
     if (!authorized) {
       ctx.response.status = 401;
       ctx.response.headers.set("www-authenticate", `Basic realm="${REALM}"`);
+      logger(ctx);
       return;
     }
     await next();
