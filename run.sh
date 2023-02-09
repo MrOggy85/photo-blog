@@ -8,5 +8,5 @@ deno run \
   --watch \
   --allow-net \
   --allow-read \
-  --allow-env=NODE_DEBUG,PORT,BASE_URL,REALM,USER,PASSWORD \
+  --allow-env=NODE_DEBUG,PORT,BASE_URL,REALM,USER,PASSWORD,DENO_REGION \
   main.ts
