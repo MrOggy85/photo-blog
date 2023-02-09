@@ -5,6 +5,12 @@ const BASE_URL = "https://photo-file-server.deno.dev";
 const CSS_PLACEHOLDER = "/* %CSS% */";
 const BODY_PLACEHOLDER = "%body%";
 
+/**
+ * This album is used in photo-stream
+ * therefor we don't need to show it in this app
+ */
+const ALBUM_STREAM = "stream";
+
 async function getHtml(body: string) {
   const path = `./index.html`;
   const decoder = new TextDecoder("utf-8");
@@ -26,8 +32,12 @@ async function home(ctx: Context) {
   const response = await fetch(`${BASE_URL}/list`);
   const json = await response.json() as string[];
 
+  const filteredJson = json.filter((x) => {
+    return x !== `${ALBUM_STREAM}/`;
+  });
+
   const body = `${getTitleHtml()}` +
-    json.map((x) =>
+    filteredJson.map((x) =>
       `<h2><a href="${x.replaceAll("/", "")}">${x.replaceAll("/", "")}</a></h2>`
     )
       .join("");
